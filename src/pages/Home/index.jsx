@@ -135,7 +135,6 @@ CASA E PROGRAMAÇÃO
 
         window.location.href = url;
 
-        alert("Formulário enviado com sucesso!");
         setForm(initialState);
 
     };
