@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import bgImage from '../../assets/background.jpg'
 
-export const Body = styled.body`
+export const Body = styled.div`
     background: linear-gradient(rgba(255, 255, 255, 0.95),rgba(255, 255, 255, 0.78)), url(${bgImage});
     background-size: cover;
     background-position: center;
