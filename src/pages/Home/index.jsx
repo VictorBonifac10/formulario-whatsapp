@@ -60,7 +60,7 @@ export function Home() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const phone = "5516997161628 ";
+        const phone = "5516997161628";
         const message = `
 INFORMAÇÕES SOBRE A(S) CRIANÇA(S)
 
@@ -127,7 +127,13 @@ CASA E PROGRAMAÇÃO
 *R-* ${form.adicionais}
 `;
 
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        const url = isMobile
+            ? `whatsapp://send?phone=${phone}&text=${encodeURIComponent(message)}`
+            : `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+        window.location.href = url;
 
         alert("Formulário enviado com sucesso!");
         setForm(initialState);
@@ -152,7 +158,7 @@ CASA E PROGRAMAÇÃO
 
                     <div className="questionsContainer">
                         <div className="warning">
-                             <span>*Ao clicar em enviar, você será redirecionado ao whatsapp.</span>
+                            <span>*Ao clicar em enviar, você será redirecionado ao whatsapp.</span>
                         </div>
                         <Field>
                             <Label>1. Nome completo da(s) criança(s).</Label>
