@@ -14,27 +14,31 @@ export const Page = styled.div`
   align-items: center;
   justify-content: center;
   padding: 16px;
-`; 
+`;
 
 export const Card = styled.form`
   width: 100%;
   max-width: 420px;
   background: #ffffffd9;
   border-radius: 24px;
-  padding: 24px 20px 32px;
 
-  /* Sombra suave */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  .questionsContainer{
+      padding: 24px 20px 32px;
 
-  /* Telas maiores (notebooks / desktops) */
+    @media (min-width: 900px) {
+      padding: 32px 40px 40px;
+    }
+  }
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+
   @media (min-width: 900px) {
     max-width: 720px;
-    padding: 32px 40px 40px;
   }
 `;
 
 export const Header = styled.div`
-  background: #c7a0ff;
+  background: rgba(188, 117, 255, 1);
   color: #fff;
   text-align: center;
   padding: 10px 24px;
@@ -54,7 +58,7 @@ export const Field = styled.div`
 
 export const Label = styled.label`
   font-size: 14px;
-  color: #9b59ff;
+  color:rgba(188, 117, 255, 1);
   display: block;
   margin-bottom: 6px;
 
@@ -94,7 +98,7 @@ export const Button = styled.button`
   height: 50px;
   border-radius: 999px;
   border: none;
-  background: #c7a0ff;
+  background: rgba(188, 117, 255, 1);
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -118,3 +122,68 @@ export const HelperText = styled.span`
     font-size: 13px;
   }
 `;
+
+export const TopSection = styled.div`
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 28px;
+
+  @media (min-width: 900px) {
+    height: 220px;
+  }
+`;
+
+export const TopImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const TopGradient = styled.div`
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(188, 117, 255, 0.95),
+    rgba(188, 117, 255, 0.55),
+    rgba(188, 117, 255, 0.15)
+  );
+`;
+
+export const TopContent = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+`;
+
+export const TopTitle = styled.h2`
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+
+  @media (min-width: 900px) {
+    font-size: 22px;
+  }
+`;
+
+export const TopDescription = styled.p`
+  font-size: 13px;
+  line-height: 1.4;
+  max-width: 90%;
+  padding: 0rem 1rem ;
+
+  @media (min-width: 900px) {
+    font-size: 14px;
+    max-width: 70%;
+  }
+`;
+

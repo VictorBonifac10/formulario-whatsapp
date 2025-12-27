@@ -24,20 +24,6 @@ export const ContainerFooter = styled.footer`
     list-style: none;
     padding: 0;
     max-width: 300px;
-
-//-----------------Sections
-    li{
-
-    a{ //Link
-    color: rgba(188, 117, 255, 1);
-    text-decoration: none;
-
-    &:hover{ //Effect
-    color: ${({ theme }) => theme.purple};
-    border-bottom: 2px solid rgba(188, 117, 255, 1);
-    }
-    }
-    }
   }
 
 //-----------------Icon Section
