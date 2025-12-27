@@ -1,4 +1,7 @@
+//WebHooks
 import { useState } from "react";
+
+//Styles
 import {
     Body,
     Page,
@@ -16,11 +19,15 @@ import {
     TopTitle,
     TopDescription
 } from "./styles";
+
+//Components
 import { Footer } from "../../components/Footer";
 
+//Midias
 import formImage from '../../assets/about.png'
 
 export function Home() {
+    
     const initialState = {
         nome: "",
         idade: "",
@@ -44,91 +51,88 @@ export function Home() {
         adicionais: ""
     };
 
-    const [form, setForm] = useState(initialState);
+const [form, setForm] = useState(initialState);
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
+const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+};
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+const handleSubmit = (e) => {
+     e.preventDefault();
 
-        const phone = "5516993090225";
+    const phone = "5516993090225";
+    const message = `
+INFORMAÇÕES SOBRE A(S) CRIANÇA(S)
 
-        const message = `
-🧒 INFORMAÇÕES SOBRE A(S) CRIANÇA(S)
+*1. Nome completo:*
+*R-* ${form.nome}
 
-1. Nome completo:
-${form.nome}
+*2. Idade:*
+*R-* ${form.idade}
 
-2. Idade:
-${form.idade}
+*3. Personalidade e comportamento:*
+*R-* ${form.personalidade}
 
-3. Personalidade e comportamento:
-${form.personalidade}
+*4. Atividades preferidas:*
+*R-* ${form.atividades}
 
-4. Atividades preferidas:
-${form.atividades}
+*4.1 Uso de aparelhos eletrônicos:*
+*R-* ${form.eletronicos}
 
-4.1 Uso de aparelhos eletrônicos:
-${form.eletronicos}
+*5. Rotina diária desejada:*
+*R-* ${form.rotina}
 
-5. Rotina diária desejada:
-${form.rotina}
+*6. Restrições ou proibições:*
+*R-* ${form.restricoes}
 
-6. Restrições ou proibições:
-${form.restricoes}
+*7. Alergias, condições de saúde ou necessidades especiais:*
+*R-* ${form.alergias}
 
-7. Alergias, condições de saúde ou necessidades especiais:
-${form.alergias}
+*8. Orientações sobre alimentação:*
+*R-* ${form.alimentacao}
 
-8. Orientações sobre alimentação:
-${form.alimentacao}
+*9. Uso de medicamentos:*
+*R-* ${form.medicamentos}
 
-9. Uso de medicamentos:
-${form.medicamentos}
+CASA E PROGRAMAÇÃO
 
-🏠 CASA E PROGRAMAÇÃO
+*10. Frequência do serviço:*
+*R-* ${form.frequencia}
 
-10. Frequência do serviço:
-${form.frequencia}
+*11. Horário de chegada dos responsáveis:*
+*R-* ${form.horarioChegada}
 
-11. Horário de chegada dos responsáveis:
-${form.horarioChegada}
+*12. Onde ficam os itens da criança:*
+*R-* ${form.itens}
 
-12. Onde ficam os itens da criança:
-${form.itens}
+*13. Locais proibidos na casa:*
+*R-* ${form.locaisProibidos}
 
-13. Locais proibidos na casa:
-${form.locaisProibidos}
+*14. Uso permitido da casa:*
+*R-* ${form.usoCasa}
 
-14. Uso permitido da casa:
-${form.usoCasa}
+*15. Primeiros socorros:*
+*R-* ${form.primeirosSocorros}
 
-15. Primeiros socorros:
-${form.primeirosSocorros}
+*16. Contatos de emergência:*
+*R-* ${form.emergencia}
 
-16. Contatos de emergência:
-${form.emergencia}
+*17. Câmeras de monitoramento:*
+*R-* ${form.cameras}
 
-17. Câmeras de monitoramento:
-${form.cameras}
+*18. Preferência de atualizações:*
+*R-* ${form.atualizacoes}
 
-18. Preferência de atualizações:
-${form.atualizacoes}
+*19. Recomendações adicionais:*
+*R-* ${form.adicionais}
+`;
 
-19. Recomendações adicionais:
-${form.adicionais}
-    `;
+window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
 
-        window.open(
-            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-            "_blank"
-        );
+alert("Formulário enviado com sucesso!");
+setForm(initialState);
 
-        alert("Formulário enviado com sucesso!");
-        setForm(initialState);
-    };
+};
 
     return (
         <Body>
