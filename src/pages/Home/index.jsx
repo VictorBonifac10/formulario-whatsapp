@@ -27,7 +27,7 @@ import { Footer } from "../../components/Footer";
 import formImage from '../../assets/about.png'
 
 export function Home() {
-    
+
     const initialState = {
         nome: "",
         idade: "",
@@ -51,17 +51,17 @@ export function Home() {
         adicionais: ""
     };
 
-const [form, setForm] = useState(initialState);
+    const [form, setForm] = useState(initialState);
 
-const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-};
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
 
-const handleSubmit = (e) => {
-     e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    const phone = "5516993090225";
-    const message = `
+        const phone = "5516993090225";
+        const message = `
 INFORMAÇÕES SOBRE A(S) CRIANÇA(S)
 
 *1. Nome completo:*
@@ -127,12 +127,12 @@ CASA E PROGRAMAÇÃO
 *R-* ${form.adicionais}
 `;
 
-window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
 
-alert("Formulário enviado com sucesso!");
-setForm(initialState);
+        alert("Formulário enviado com sucesso!");
+        setForm(initialState);
 
-};
+    };
 
     return (
         <Body>
@@ -151,6 +151,9 @@ setForm(initialState);
                     </TopSection>
 
                     <div className="questionsContainer">
+                        <div className="warning">
+                             <span>*Ao clicar em enviar, você será redirecionado ao whatsapp.</span>
+                        </div>
                         <Field>
                             <Label>1. Nome completo da(s) criança(s).</Label>
                             <BigInput name="nome" value={form.nome} onChange={handleChange} />

@@ -23,11 +23,21 @@ export const Card = styled.form`
   border-radius: 24px;
 
   .questionsContainer{
-      padding: 24px 20px 32px;
+      padding: 0px 20px 20px 20px;
 
     @media (min-width: 900px) {
-      padding: 32px 40px 40px;
+      padding: 0px 40px 20px 40px;
     }
+  }
+
+  .warning{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.6rem;
+    padding: 0rem 0.5rem 1.3rem 0.5rem;
   }
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
